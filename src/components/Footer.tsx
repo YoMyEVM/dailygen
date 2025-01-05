@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="fixed bottom-0 w-full bg-gray-800 text-center py-4 text-gray-400 font-bold h-auto min-h-[15vh] flex justify-center items-center">
+    <footer className="fixed bottom-0 w-full bg-gray-800 text-center py-1 text-gray-400 font-bold h-auto min-h-[12vh] flex justify-center items-center">
       <div className="flex justify-center items-center space-x-4 flex-wrap w-full max-w-screen-lg mx-auto">
         {dappCards.map((card, index) => (
           <DappCard
