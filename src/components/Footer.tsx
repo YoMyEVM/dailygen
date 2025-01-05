@@ -15,6 +15,7 @@ const Footer = () => {
       link: "https://dapp2.example.com",
       image: "https://via.placeholder.com/150",  // Example image URL
     },
+
     {
       title: "Dapp 3",
       description: "This is the description for Dapp 3.",
