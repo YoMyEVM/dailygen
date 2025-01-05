@@ -22,25 +22,23 @@ const Footer = () => {
       image: "https://via.placeholder.com/150",  // Example image URL
     },
     {
-      title: "Dapp 3",
-      description: "This is the description for Dapp 3.",
-      link: "https://dapp3.example.com",
+      title: "Dapp 4", // Renamed the second Dapp 3 to Dapp 4 for uniqueness
+      description: "This is the description for Dapp 4.",
+      link: "https://dapp4.example.com",
       image: "https://via.placeholder.com/150",  // Example image URL
     }
   ];
 
   return (
-    <footer className="fixed bottom-0 w-full bg-gray-800 text-center py-1 text-gray-400 font-bold h-auto min-h-[12vh] flex justify-center items-center">
+    <footer className="fixed bottom-0 w-full bg-dark-brown text-center py-1 text-gray-400 font-bold h-auto min-h-[12vh] flex justify-center items-center">
       <div className="flex justify-center items-center space-x-4 flex-wrap w-full max-w-screen-lg mx-auto">
         {dappCards.map((card, index) => (
           <DappCard
             key={index}
-        
             image={card.image}  // Pass image URL here
           />
         ))}
       </div>
-
     </footer>
   );
 };
