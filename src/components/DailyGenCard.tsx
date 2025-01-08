@@ -1,4 +1,3 @@
-// DailyGenCard.tsx
 interface DailyGenCardProps {
   day: number;
   buyPrice: string;
@@ -6,6 +5,8 @@ interface DailyGenCardProps {
   images: string[]; // Array of image URLs
   isOpen: boolean; // Determines if the card should be open
   onToggle: (day: number) => void; // Function to toggle card open state
+  onGenerate: () => void; // Function to handle generate action
+  onBurn: () => void; // Function to handle burn action
 }
 
 const DailyGenCard = ({
@@ -15,6 +16,8 @@ const DailyGenCard = ({
   images,
   isOpen,
   onToggle,
+  onGenerate,
+  onBurn,
 }: DailyGenCardProps) => {
   // Prevent the card from closing when clicking on the details box
   const handleDetailsClick = (event: React.MouseEvent) => {
@@ -97,6 +100,22 @@ const DailyGenCard = ({
                 <div className="text-lg font-medium text-white">Buy: {buyPrice}</div>
                 <div className="text-lg font-medium text-gray-400">Sell: {sellPrice}</div>
               </div>
+            </div>
+
+            {/* Generate and Burn Buttons */}
+            <div className="flex justify-center space-x-4 mt-6">
+              <button
+                onClick={onGenerate} // Trigger generate action
+                className="bg-[#28a745] text-white py-3 px-8 rounded-md w-full max-w-[200px]"
+              >
+                Generate NFT
+              </button>
+              <button
+                onClick={onBurn} // Trigger burn action
+                className="bg-[#dc3545] text-white py-3 px-8 rounded-md w-full max-w-[200px]"
+              >
+                Burn NFT
+              </button>
             </div>
           </div>
         </div>
