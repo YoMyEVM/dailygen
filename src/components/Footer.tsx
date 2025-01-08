@@ -1,5 +1,5 @@
 // src/components/footer/Footer.tsx
-import DappCard from "components/DappCard";  // Updated import path
+import DappCard from "components/DailyGenCard";  // Updated import path
 
 const Footer = () => {
   const dappCards = [
