@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DailyGenCard from './DailyGenCard';
 
 const dailyItems = [
@@ -10,7 +10,7 @@ const dailyItems = [
       "https://via.placeholder.com/600x400?text=Large+Image+1", 
       "https://via.placeholder.com/200x200?text=Small+Image+1", 
       "https://via.placeholder.com/200x200?text=Small+Image+2"
-    ], // Example image URLs
+    ],
   },
   {
     day: 2,
@@ -32,30 +32,54 @@ const dailyItems = [
       "https://via.placeholder.com/200x200?text=Small+Image+6"
     ],
   },
-  // More items can be added here
 ];
 
 const DailyTable = () => {
-  const [openDay, setOpenDay] = useState<number | null>(3); // Open highest day by default
-
+  const [openDay, setOpenDay] = useState<number | null>(3);
+  const [countdown, setCountdown] = useState<number>(25 * 60 * 60); // 25 hours countdown in seconds
   const sortedItems = dailyItems.sort((a, b) => b.day - a.day);
 
   const handleToggle = (day: number) => {
-    setOpenDay(openDay === day ? null : day); // Toggle open/close for each card
+    setOpenDay(openDay === day ? null : day); 
   };
 
   const handleGenerate = () => {
-    // Handle the generate action (minting)
     console.log('Generating NFT...');
   };
 
   const handleBurn = () => {
-    // Handle the burn action (burning NFT)
     console.log('Burning NFT...');
+  };
+
+  useEffect(() => {
+    // Set an interval to update the countdown every second
+    const interval = setInterval(() => {
+      setCountdown((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    // Clear the interval when the component unmounts or countdown reaches zero
+    return () => clearInterval(interval);
+  }, []);
+
+  // Format countdown as HH:MM:SS
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes
+      .toString()
+      .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
   return (
     <div className="container mx-auto mt-10 px-4 py-16">
+      {/* Countdown Timer */}
+      <div className="text-center text-white mb-8">
+        <h2 className="text-2xl font-bold">Next Round Starts In:</h2>
+        <p className="text-3xl font-bold">{formatTime(countdown)}</p>
+      </div>
+
+      {/* Daily Items */}
       <div className="space-y-4">
         {sortedItems.map((item, index) => (
           <DailyGenCard
@@ -64,10 +88,10 @@ const DailyTable = () => {
             buyPrice={item.buyPrice}
             sellPrice={item.sellPrice}
             images={item.images}
-            isOpen={openDay === item.day} // Open the card if it matches the current openDay
-            onToggle={handleToggle} // Pass the toggle function
-            onGenerate={handleGenerate} // Pass the generate function
-            onBurn={handleBurn} // Pass the burn function
+            isOpen={openDay === item.day}
+            onToggle={handleToggle}
+            onGenerate={handleGenerate}
+            onBurn={handleBurn}
           />
         ))}
       </div>
