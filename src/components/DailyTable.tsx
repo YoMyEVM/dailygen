@@ -5,8 +5,8 @@ import DailyGenCard from './DailyGenCard';
 const dailyItems = [
   {
     day: 3,
-    buyPrice: "$130",
-    sellPrice: "$170",
+    buyPrice: "$170",
+    sellPrice: "$130",
     images: [
       "https://via.placeholder.com/600x400?text=Large+Image+1", 
       "https://via.placeholder.com/200x200?text=Small+Image+1", 
@@ -16,7 +16,7 @@ const dailyItems = [
   {
     day: 2,
     buyPrice: "$120",
-    sellPrice: "$160",
+    sellPrice: "$90",
     images: [
       "https://via.placeholder.com/600x400?text=Large+Image+2",
       "https://via.placeholder.com/200x200?text=Small+Image+3",
@@ -25,8 +25,8 @@ const dailyItems = [
   },
   {
     day: 1,
-    buyPrice: "$100",
-    sellPrice: "$150",
+    buyPrice: "$200",
+    sellPrice: "$160",
     images: [
       "https://via.placeholder.com/600x400?text=Large+Image+3",
       "https://via.placeholder.com/200x200?text=Small+Image+5",
