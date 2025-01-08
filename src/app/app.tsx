@@ -1,7 +1,9 @@
 // App.tsx
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from 'components/Navbar';
 import DailyTable from 'components/DailyTable';
+import About from 'app/About';
+import Portfolio from 'app/Portfolio';
 
 function App() {
   return (
@@ -9,7 +11,11 @@ function App() {
       <div className="bg-black text-white min-h-screen">
         <Navbar />
         <main className="pb-24">
-          <DailyTable /> {/* Add DailyTable here */}
+          <Routes>
+            <Route path="/" element={<DailyTable />} /> {/* Default route with DailyTable */}
+            <Route path="/about" element={<About />} />  {/* About page route */}
+            <Route path="/portfolio" element={<Portfolio />} />  {/* Portfolio page route */}
+          </Routes>
         </main>
       </div>
     </Router>
