@@ -1,16 +1,20 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
-import tailwind from "tailwindcss";
+import tailwindcss from "tailwindcss";
 
+// Simplified Vite config with Tailwind CSS plugin
 export default defineConfig(() => {
   return {
-    plugins: [react()],
+    plugins: [
+      react(),
+      // Vite automatically uses PostCSS configuration
+    ],
     css: {
       postcss: {
         plugins: [
-          tailwind({
-            config: resolve(__dirname, "tailwind.config.mjs"),
+          tailwindcss({
+            config: resolve(__dirname, "tailwind.config.mjs"),  // Reference the Tailwind config
           }),
         ],
       },
@@ -23,9 +27,6 @@ export default defineConfig(() => {
         app: resolve(__dirname, "src", "app"),
         components: resolve(__dirname, "src", "components"),
         hooks: resolve(__dirname, "src", "hooks"),
-      },
-      build: {
-        target: "es2020",
       },
     },
   };
