@@ -1,11 +1,11 @@
-const forms = require("@tailwindcss/forms");
+import forms from "@tailwindcss/forms";
 
-module.exports = {
+export default {
   content: ["./src/**/*.tsx", "./src/**/*.css"],
   theme: {
     extend: {
       colors: {
-        'dark-brown': '#232222', // Add custom dark brown color
+        'dark-brown': '#232222', // Custom color
       },
     },
   },
