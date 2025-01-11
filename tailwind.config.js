@@ -1,4 +1,6 @@
-export default {
+const forms = require("@tailwindcss/forms");
+
+module.exports = {
   content: ["./src/**/*.tsx", "./src/**/*.css"],
   theme: {
     extend: {
@@ -7,5 +9,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [forms],
 };
