@@ -5,9 +5,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -27,7 +25,9 @@
       "app/*": ["src/app/*"],
       "components/*": ["src/components/*"],
       "hooks/*": ["src/hooks/*"]
-    }
-  },
+    },
 
+    /* Enable synthetic default imports */
+    "allowSyntheticDefaultImports": true  // Add this line
+  }
 }
